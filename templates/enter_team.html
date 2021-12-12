@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_home.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_enter_team.css') }}">
+</head>
+<body>
+
+
+
+
+	<h2>Teams</h2>
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<thead>
+			<tr>
+				<th>Team Id</th>
+				<th>Team Name</th>
+			</tr>
+			</thead>
+
+			<tbody>
+				{% for i in context %}						
+					<tr>
+						<td>{{ i.id }}</td>
+						<td>{{ i.team }}</td>
+					</tr>
+				{% endfor %}
+			<tbody>
+		</table>
+	</div>
+
+
+
+	<div class="form">
+		<form action="/display_teams/" method="post" id="form" class="validate">
+			<div class="form-field">
+				<label for="full-name"></label>
+				<input type="text" name="team_id" id="full-name" placeholder="Enter Team Id to view the Team's Squad" required />
+			</div>
+			
+			<div class="form-field">
+				<label for=""></label>
+				<input type="submit" value="Submit" id="submit-btn" />
+			</div>
+			<!-- <button class="submit-btn" id="submit-btn" href="/getSeriesSquad/">Submit</button> -->
+		</form>
+		<form action="/match_teams/" method="post" id="form" class="validate">
+			<div class="form-field">
+				<label for="full-name"></label>
+				<input type="text" name="match_id" id="full-name" placeholder="Enter Match Id to view the Team's Squad" required />
+			</div>
+			
+			<div class="form-field">
+				<label for=""></label>
+				<input type="submit" value="Submit" id="submit-btn" />
+			</div>
+			<!-- <button class="submit-btn" id="submit-btn" href="/getSeriesSquad/">Submit</button> -->
+		</form>
+
+	</div>
+</body>
+</html>
