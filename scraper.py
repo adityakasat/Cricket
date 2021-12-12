@@ -185,9 +185,7 @@ def func4():
         # ----------------------
     
         return render_template('match_team.html', context=arr2, title="Display Teams")
-
-# func4()
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
